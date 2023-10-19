@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-const Host = "https://dazzling-profiterole-b254da.netlify.app"
+const Host = "https://bloggerwala.netlify.app"
 const Server = "http://localhost:3000"
 
 
