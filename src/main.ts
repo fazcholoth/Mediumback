@@ -1,10 +1,13 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+const Host = "https://dazzling-profiterole-b254da.netlify.app"
+const Server = "http://localhost:3000"
+
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors({
-    "origin": "https://blogginapp.onrender.com",
+    "origin": Host ,
     "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
     "preflightContinue": false,
     "optionsSuccessStatus": 204
