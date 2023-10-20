@@ -1,0 +1,30 @@
+import { CreateBlogPostDto } from './dto/blogs.dto';
+import { BlogService } from './blogs.service';
+import { BlogPost } from './interfaces/blog.interface';
+import { Topic } from './interfaces/category.interface';
+import { User } from './interfaces/user.interface';
+import { CreateUserDto } from './dto/user.dto';
+import { Admin } from './interfaces/admin.interface';
+import { CreateTopicDto } from './dto/category.dto';
+export declare class BlogController {
+    private readonly blogService;
+    constructor(blogService: BlogService);
+    findAll(): Promise<BlogPost[]>;
+    findCounts(): Promise<any>;
+    findAllwriters(): Promise<User[]>;
+    findAllTopics(): Promise<Topic[]>;
+    findTopWriters(): Promise<User[]>;
+    findFeatured(): Promise<BlogPost[]>;
+    findRecommented(): Promise<Topic[]>;
+    findOne(id: any): Promise<BlogPost>;
+    findTopicwise(id: any): Promise<BlogPost[]>;
+    create(createBlogDto: CreateBlogPostDto): Promise<BlogPost>;
+    loginUser(CreateUserDto: any): Promise<User>;
+    loginAdmin(CreateAdminDto: CreateUserDto): Promise<Admin>;
+    delete(id: any): Promise<BlogPost>;
+    blockuser(id: any): Promise<User>;
+    unblockuser(id: any): Promise<User>;
+    unlisttopic(id: any): Promise<Topic>;
+    listtopic(id: any): Promise<Topic>;
+    addTopic(CreateTopicDto: CreateTopicDto): Promise<Topic>;
+}

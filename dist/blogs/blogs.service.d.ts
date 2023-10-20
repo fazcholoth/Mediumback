@@ -1,0 +1,31 @@
+import { BlogPost } from './interfaces/blog.interface';
+import { Model } from 'mongoose';
+import { User } from './interfaces/user.interface';
+import { Topic } from './interfaces/category.interface';
+import { Admin } from './interfaces/admin.interface';
+export declare class BlogService {
+    private readonly blogModel;
+    private readonly userModel;
+    private readonly adminModel;
+    private readonly topicModel;
+    constructor(blogModel: Model<BlogPost>, userModel: Model<User>, adminModel: Model<Admin>, topicModel: Model<Topic>);
+    findAll(): Promise<BlogPost[]>;
+    findCounts(): Promise<any>;
+    findAllwriters(): Promise<User[]>;
+    findAllTopics(): Promise<Topic[]>;
+    findTopwriters(): Promise<User[]>;
+    findRecommented(): Promise<Topic[]>;
+    findFeatured(): Promise<BlogPost[]>;
+    findTopicwise(id: string): Promise<BlogPost[]>;
+    findOne(id: string): Promise<BlogPost>;
+    create(blog: BlogPost): Promise<BlogPost>;
+    loginUser(user: User): Promise<User>;
+    loginAdmin(admin: Admin): Promise<Admin>;
+    delete(id: string): Promise<BlogPost>;
+    deleteTopic(id: string): Promise<Topic>;
+    blockUser(id: string): Promise<User>;
+    unblockUser(id: string): Promise<User>;
+    unlistTopic(id: string): Promise<Topic>;
+    listTopic(id: string): Promise<Topic>;
+    addTopic(topic: Topic): Promise<Topic>;
+}

@@ -28,6 +28,12 @@ export class BlogController {
   findAll(): Promise<BlogPost[]> {
     return this.blogService.findAll();
   }
+  
+  @Get('counts')
+  findCounts(): Promise<any> {
+    return this.blogService.findCounts();
+  }
+  
 
   @Get('allusers')
   findAllwriters (): Promise<User[]> {
@@ -37,6 +43,11 @@ export class BlogController {
   @Get('alltopics')
   findAllTopics(): Promise<Topic[]> {
     return this.blogService.findAllTopics();
+  }
+
+  @Get('cats')
+  findcats(): Promise<Topic[]> {
+    return this.blogService.findcats();
   }
 
   @Get('topwriters')
