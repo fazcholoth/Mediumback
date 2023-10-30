@@ -18,11 +18,12 @@ import { CreateAdminDto } from './dto/admin.dto';
 import { Admin } from './interfaces/admin.interface';
 import { CreateTopicDto } from './dto/category.dto';
 import { Response } from 'express';
+import { TemporalService } from './temporal.service';
 
 
 @Controller('blog')
 export class BlogController {
-  constructor(private readonly blogService: BlogService) {}
+  constructor(private readonly blogService: BlogService ,private readonly TemporalService: TemporalService) {}
 
   @Get()
   findAll(): Promise<BlogPost[]> {
@@ -76,8 +77,9 @@ export class BlogController {
   }
 
   @Post()
-  create(@Body() createBlogDto: CreateBlogPostDto): Promise<BlogPost> {
-    return this.blogService.create(createBlogDto);
+  create(@Body() createBlogDto): Promise<any> {
+    this.TemporalService.run()
+    return this.TemporalService.runclient(createBlogDto)
   }
 
   @Post('loginuser')

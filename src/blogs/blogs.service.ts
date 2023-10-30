@@ -59,11 +59,9 @@ export class BlogService {
     return await this.blogModel.findOne({ _id: id });
   }
 
-  async create(blog: BlogPost): Promise<BlogPost> {
+  async create(blog): Promise<any> {
     console.log('creating blog');
-
-    const newBlog = new this.blogModel(blog);
-    return await newBlog.save();
+    console.log(blog);
   }
 
   async loginUser(user: User): Promise<User> {
